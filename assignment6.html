@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-6</title>
+    <!-- font lato  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/add6e03308.js"
+      crossorigin="anonymous"></script>
+
+      <!-- tailwind css -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    .lato-thin {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+};
+  .active{
+    background-color: #0E7A81;
+    color: white;
+  }
+</style>
+</head>
+<body class="lato-thin max-w-[1250px] mx-auto">
+    <header>
+        <div class="navbar py-12 w-11/12 mx-auto">
+            <div class="navbar-start gap-3">
+              <img src="images/logo.webp" alt="">
+              <p class="text-2xl font-bold">Peddy</p>
+            </div>
+            <div class="navbar-center hidden lg:flex gap-5">
+              <p>Home</p>
+              <p>Shope</p>
+              <p>Contact</p>
+            </div>
+            <div class="navbar-end">
+                <i class="fa-regular fa-user border-2 border-solid rounded-full p-2"></i>
+            </div>
+          </div>
+    </header>
+    <main class="w-11/12 mx-auto">
+        <!-- banner section  -->
+         <section>
+            <div class="space-y-5 w-8/12 mx-auto text-center">
+            <p>Bringing Families Together ❤️‍🔥 </p>
+            <h1 class="text-4xl md:text-6xl font-bold md:leading-[70px]">Your Path to Adoption Starts Here</h1>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            <button onclick="location.href='#best-friend'" class="btn bg-[#0E7A81] text-white font-bold">View More</button>
+            <img src="images/pet.webp" alt="">
+            </div>
+         </section>
+         <!-- categories button  -->
+          <section>
+            <div id="best-friend" class="text-center w-7/12 mx-auto space-y-5 my-12">    
+            <h3 class="text-4xl font-bold">Adopt  Your  Best Friend</h3>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+
+            <div id="btn-categories" class="flex justify-between items-center py-12 gap-5">
+            </div>
+
+            <!-- sort by price -->
+             <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Best Deal For you</h3>
+                <button class="btn bg-[#0E7A81] text-white font-bold">Sort by Price</button>
+             </div>
+          </section>
+          <!-- pet cards -->
+        <section>
+            <div class="grid grid-cols-4 gap-3 py-12">
+                <div class="grid col-span-3">
+                    <div id="pet-container" class="grid grid-cols-3 gap-3">
+                    </div>
+                </div>    
+                <div id="image-btn" class="grid grid-cols-2 border-2 rounded-lg shadow-sm auto-rows-min p-2 gap-2"></div>
+            </div>
+        </section>
+        <!-- Open the modal using ID.showModal() method -->
+
+<dialog id="my_modal_1" class="p-20 rounded-lg">
+  
+    <div id="modal-content"></div>
+</dialog>
+
+<!-- Open the modal using ID.showModal() method -->
+
+<dialog id="my_modal_2" class="modal">
+  <div class="modal-box">
+    <div id="details-card"></div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
