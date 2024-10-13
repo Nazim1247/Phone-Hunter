@@ -1,4 +1,19 @@
 
+let sortByPriceData = [];
+const sortByPrice = () => {
+    document.getElementById('spinner').style.display = 'block'
+    setTimeout(() => {
+        fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
+    .then((response) => response.json())
+    .then((data) => {
+        sortByPriceData = data.pets;
+        displayAllPets(sortByPriceData);
+        activeRemove()
+    })
+    .catch((error) => console.log(error));
+    }, 2000);
+};
+
 const loadAllPetsCategories = () => {
     fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
     .then((response) => response.json())
@@ -8,11 +23,12 @@ const loadAllPetsCategories = () => {
 
 const displayAllPetsCategories = (categories) => {
     const categoriesBtn = document.getElementById('btn-categories');
+    categories.innerHTML = '';
     categories.forEach(categoryBtn => {  
         const {category_icon, category, id} = categoryBtn;
         const div = document.createElement('div');
     div.innerHTML = `
-    <div id="btn-${id}" onclick="loadCategoryItems('${category}')" class="flex justify-center items-center gap-3 border-2 border-solid py-2 px-8 rounded-xl">
+    <div id="btn-${category}" onclick="loadCategoryItems('${category}')" class="flex justify-center items-center gap-3 border-2 border-solid py-2 px-8 rounded-xl active-btn">
     <img src="${category_icon}" />
     <p class="text-xl font-bold">${category}</p>
     </div>
@@ -22,15 +38,22 @@ const displayAllPetsCategories = (categories) => {
 };
 
 const loadAllPets = () => {
-    fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
+    document.getElementById('spinner').style.display = 'block'
+    setTimeout(() => {
+        fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
     .then((response) => response.json())
     .then((data => displayAllPets(data.pets)))
     .catch((error => console.log(error)))
+    }, 2000)
 };
 
 const displayAllPets = (pets) => {
     const petContainer = document.getElementById('pet-container');
     petContainer.innerHTML = '';
+    document.getElementById('spinner').style.display = 'none'
+    sortByPriceData.sort((a, b) => {
+        return b.price - a.price;
+    })
     if(pets.length === 0){
         petContainer.innerHTML = `
         <div class="grid col-span-3 text-center bg-slate-50 shadow-sm rounded-md py-10 gap-5">
@@ -63,15 +86,29 @@ const displayAllPets = (pets) => {
 };
 
 const loadCategoryItems = (id) => {
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+    document.getElementById('spinner').style.display = 'block'
+    setTimeout(() => {
+        fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
     .then((response) => response.json())
     .then((data) => {
-        // const activeButton = document.getElementById(`btn-${id}`)
-        // activeButton.classList.add("active")
+        activeRemove()
+        const activeButton = document.getElementById(`btn-${id}`)
         
+        activeButton.classList.add("!text-white")
+        activeButton.classList.add("!bg-[#0E7A81]")
         displayAllPets(data.data);
     })
     .catch((error) => console.log(error))
+    }, 2000);
+};
+
+const activeRemove = () => {
+    const removes = document.getElementsByClassName('active-btn');
+    for(let remove of removes){
+
+        remove.classList.remove("!text-white")
+        remove.classList.remove("!bg-[#0E7A81]")
+    }
 };
 
 const likeBtn = (images) => {
@@ -107,7 +144,8 @@ const loadDetails = (petId) => {
     .then((response) => response.json())
     .then((data) => displayDetails(data.petData))
     .catch((error) => console.log(error))
-}
+};
+
 const displayDetails = (pets) => {
     const detailsCard = document.getElementById('details-card');
     const {image, pet_name, breed, date_of_birth, gender, price, petId, vaccinated_status, pet_details} = pets;
@@ -127,7 +165,7 @@ const displayDetails = (pets) => {
     `;
     detailsCard.appendChild(div)
     document.getElementById('my_modal_2').showModal()
-}
+};
 
 
 loadAllPets()
