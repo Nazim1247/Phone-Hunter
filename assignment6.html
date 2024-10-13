@@ -25,8 +25,8 @@
 </style>
 </head>
 <body class="lato-thin max-w-[1250px] mx-auto">
-    <header>
-        <div class="navbar py-12 w-11/12 mx-auto">
+    <header class="w-11/12 mx-auto">
+        <div class="navbar py-12">
             <div class="navbar-start gap-3">
               <img src="images/logo.webp" alt="">
               <p class="text-2xl font-bold">Peddy</p>
@@ -59,7 +59,7 @@
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
 
-            <div id="btn-categories" class="flex justify-between items-center py-12 gap-5">
+            <div id="btn-categories" class="md:flex md:justify-between items-center py-12 gap-5 space-y-3 md:space-y-0">
             </div>
 
             <!-- sort by price -->
@@ -79,12 +79,12 @@
 
           <!-- pet cards -->
         <section>
-            <div class="grid grid-cols-4 gap-3 py-12">
-                <div class="grid col-span-3">
-                    <div id="pet-container" class="grid grid-cols-3 gap-3">
+            <div class="grid md:grid-cols-4 gap-3 py-12">
+                <div class="grid md:col-span-3">
+                    <div id="pet-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
                     </div>
                 </div>    
-                <div id="image-btn" class="grid grid-cols-2 border-2 rounded-lg shadow-sm auto-rows-min p-2 gap-2"></div>
+                <div id="image-btn" class="grid lg:grid-cols-2 border-2 rounded-lg shadow-sm auto-rows-min p-2 gap-2"></div>
             </div>
         </section>
         <!-- Open the modal using ID.showModal() method -->
