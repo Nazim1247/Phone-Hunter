@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- font awesome -->
+    <script
+    src="https://kit.fontawesome.com/add6e03308.js"
+    crossorigin="anonymous"></script>
+    <!-- tailwind css link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <!-- Lexend font     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        .lexend-font{
+            font-family: "Lexend", sans-serif;
+        };
+    </style>
+</head>
+<body class="lexend-font max-w-1024 mx-auto">
+    <header class="bg-yellow-50 py-4">
+        <div class="navbar w-11/12 mx-auto">
+            <div class="navbar-start">
+                <button id="home-btn" class="bg-[#B4F461] py-2 px-5 rounded-lg font-bold">Home</button>
+              </div>
+            <div class="navbar-center">
+              <p class="flex justify-center items-center space-x-3">
+                <img src="assets/logo.png" alt="">
+                <span class="font-bold hidden lg:flex">Donate Bangladesh</span>
+              </p>
+            </div>
+            <div class="navbar-end">
+                <p class="flex justify-center items-center space-x-3">
+                    <img src="assets/coin.png" alt="">
+                    <span id="available-balance">5500 BDT</span>
+                </p>
+              </div>
+          </div>
+    </header>
+    <main class="w-11/12 mx-auto space-y-5">
+        <h1 class="text-2xl font-bold my-5">Important FAQ <i class="fa-regular fa-circle-question"></i></h1>
+        <!-- question 1 -->
+        <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
+            <div class="collapse-title text-xl font-medium">What is the meaning of DOM ?</div>
+            <div class="collapse-content">
+              <p>Using the Document Object Model</p>
+            </div>
+          </div>
+          <!-- question 2 -->
+        <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
+            <div class="collapse-title text-xl font-medium">Where is the DOM used ?</div>
+            <div class="collapse-content">
+              <p>DOM is used to modify web pages.</p>
+            </div>
+          </div>
+          <!-- question 3 -->
+        <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
+            <div class="collapse-title text-xl font-medium">Why do we need DOM ?</div>
+            <div class="collapse-content">
+              <p>We need DOM manipulate web pages dynamically.</p>
+            </div>
+          </div>
+          <!-- question 4 -->
+        <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
+            <div class="collapse-title text-xl font-medium">How can we learn DOM ?</div>
+            <div class="collapse-content">
+              <p>Learn DOM by practising with JS documentation.</p>
+            </div>
+          </div>
+    </main>
+    <script src="home.js"></script>
+</body>
+</html>

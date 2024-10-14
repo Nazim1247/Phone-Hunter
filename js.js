@@ -1,4 +1,9 @@
 
+
+document.getElementById('blog-btn').addEventListener('click', () => {
+    window.location.href='home.html';
+});
+
 const donateBtn = document.querySelectorAll('.donate-btn');
 donateBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
